@@ -15,11 +15,17 @@ public class Assignment4 {
 	 * @param args
 	 * @throws FileNotFoundException
 	 */
+	@SuppressWarnings("resource")
 	public static void main(String[] args) throws FileNotFoundException{
 		String character = "";
-		File file = new File(args[0]);
-		in = new Scanner(file).useDelimiter("");
-		//arraylist to store tokens
+		try{
+			File file = new File(args[0]);
+			in = new Scanner(file).useDelimiter("");
+		}
+		catch(FileNotFoundException e){
+			System.out.println("File not found");
+			System.exit(1);
+		}
 		string = new ArrayList<String>();
 		if(in.hasNext())
 			character = in.next();
